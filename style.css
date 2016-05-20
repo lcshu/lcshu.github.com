@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+
+#page
+{
+	width:100%;
+	margin-left:20%;
+	margin-right:auto;
+}
+
+#header
+{
+	position:absolute;
+	top:15px;
+	text-align:right;
+	z-index:-2;
+	visibility:show;
+	font-family:Arial, Helvetica, sans-serif;
+	width:800px;
+}
+
+#links
+{
+	position:absolute;
+	top:69px;
+	width:600px;
+	visibility:show;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#current_proj
+{
+	position:absolute;
+	top:500px;
+	width:430px;
+	visibility:show;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+#current_thumb
+{
+	position:absolute;
+	top:500px;
+	width:800px;
+	text-align:right;
+}
+
+#body
+{
+	position:absolute;
+	top:150px;
+	font-family:Arial, Helvetica, sans-serif;
+	width:800px;
+	margin-top:0px;
+}
+
+h1
+{
+margin-top:0px;
+}
+
+a,
+a:visited { color: #045FB4; text-decoration: none; }
+a:hover,
+a:active  { color: #000000; background: #999999; text-decoration: none; }
+
+
+a.bolder,
+a.bolder:visited { font-size: 14px; color: #666666; font-weight:bold; text-decoration: none; }
+a.bolder:hover,
+a.bolder:active  { color: #045FB4; font-weight:bold; background: #999999; }
+
+ul#tabs { list-style-type: none; margin: 30px 0 0 0; padding: 0 0 0.3em 0; }
+ul#tabs li { display: inline; }
+ul#tabs li a { color: #42454a; background-color: #dedbde; border: 1px solid #c9c3ba; border-bottom: none; padding: 0.3em; text-decoration: none; }
+ul#tabs li a:hover { background-color: #f1f0ee; }
+ul#tabs li a.selected { color: #000; background-color: #f1f0ee; padding: 0.7em 0.3em 0.38em 0.3em; }
+div.tabContent { border: 1px solid #c9c3ba; padding: 0.5em; background-color: #f1f0ee; }
+div.tabContent.hide { display: none; }

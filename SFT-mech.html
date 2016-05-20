@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Online Portfolio</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="tabs.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26026374-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+
+</head>
+
+<body onload="init()">
+<div id = "page">
+<div id = "header">
+	<p><b><a href="index.html" title="Home">Laura Shumaker</a></b></p>
+    <hr />
+	<p>lauracshumaker@gmail.com</p>
+</div>
+
+<div id = "links">
+  <p><a href="resume.html" title="Resume">Resume</a> <a href="gallery.html" title="Gallery">Gallery</a> <a href="classes.html" title="Classes">Classes</a> <a href="interests.html" title="Interests">Interests</a> <a href="adventures.html" title=Adventures>Adventures</a> <a href="acknowledgements.html" title=Acknowledgements>Acknowledgements</a></p>
+</div>
+
+<div id = "body">
+<div style="top:0px; left:0px; position: absolute; z-index: 2; visibility: show;">
+<a href="SFTgallery.html" title="SFT Gallery">&#8636; Back to SFT</a>
+<hr>
+<h1>Shoes for a Frostbite Amputee</h1>
+
+<ul id="tabs">
+  <li><a href="#descr">Problem Description</a></li>
+  <li><a href="#design">Design Requirements</a></li>
+  <li><a href="#analysis">Analysis</a></li>
+  <li><a href="#fab">Fabrication</a></li>
+  <li><a href="#feedback">Customer Feedback</a></li>
+</ul>
+
+<div class="tabContent" id="descr">
+  <div>
+    <p style="text-align:center;"><img src="PortfolioItems/sft-meche-portfolio-02.png" width="800px"/></p>
+	<p>A customer approached SFT about making shoes for him; his first through third toes on both feet 
+	were amputated after experiencing frostbite. He already had custom shoes made from casts of his feet,
+	but these shoes' toeboxes were too rounded, limiting his ability to edge (stand on small 
+	rock features) or crack climb (requires wedging the toebox into a crack and twisting
+	one's foot to create a camming effect).</p>
+  </div>
+</div>
+
+<div class="tabContent" id="design">
+  <div>
+	<img src="PortfolioItems/sft-meche-portfolio-01.png" width="400px" style="float:right;"/>
+	<dl>
+	<dt>This shoe should restore the experience of securely edging:</dt>
+	<dd><li>the part of the toebox that extends past the customer's foot should be stiff enough to 
+	transfer his weight to a small feature</li></dd>
+	<dt>while retaining some smearing ability:</dt>
+	<dd><li>the toebox should be able to flex the same amount as an OTS shoe would under the same 
+	load.</li></dd>
+	</dl>
+	<p>The material and geometry of the midsole will control the flexibility of the toebox, so I 
+	began by analyzing the midsole as a cantilevered beam, loaded with the worst-case
+	scenario (the customer's full weight applied to the tip of the toebox).</p>
+  </div>
+</div>
+
+<div class="tabContent" id="analysis">
+  <div>
+    <p>Simplifying assumptions:</p>
+	<li>The customer's foot is rigid and perfectly coupled to the shoe and midsole. Therefore, the 
+	midsole can be treated as a cantilevered beam beyond the end of the customer's foot.</li>
+	<li>All of the customer's weight is applied to a small area on the distal end of the midsole. The 
+	customer and his climbing gear applies about 750N.</li>
+	<li>The midsole is a rectangular beam with a width of 61 mm. (It actually tapers towards the distal end, 
+	but most of the bending will occur at the beam base, and the final shoe will be slightly stiffer than 
+	the midsole alone as it will also include a rubber sole, suede upper, and sculpted rubber cap to fill
+	the toebox).</li>
+	<li>OTS shoes flex between 6 and 12 mm under load.</li>
+	<p>Preliminary analysis suggested that to be stiff enough, a plastic-only midsole would push the yield 
+	strength of the material. I decided to build the midsole out of polypropylene sheet (since it had close 
+	to the desired modulus and yield strength) riveted to spring steel shim stock (to keep the plastic from 
+	yielding).</p>
+	<p>With the above assumptions and material choices, I calculated how long the midsole "beam" should 
+	be to provide the desired tip deflection with the standard beam bending equation:</p>
+	<p style="text-align:center;" lang="latex">\delta = \frac{PL^3}{3EI}</p>
+	<p>where &#948; = deflection, P = load, L = beam length, E = Young's Modulus, and I = area moment of inertia.</p>
+	<p>To simplify the calculation, I treated the plastic-and-metal composite beam as a T-beam of steel alone. 
+	The cross-bar of the T had the dimensions of the original steel part, and the vertical of the T had 
+	the thickness of the plastic part and the equivalent width of steel to yield the same bending stiffness as 
+	the original plastic part alone. This resulted in a T-beam with the dimensions shown in the image:</p>
+	<p style="text-align:center;"><img src="PortfolioItems/sft-meche-portfolio-04.png" width="450px"/></p>
+	<p>The equivalent T-beam has an area moment of inertia of about 0.699 mm<sup>4</sup>. Solving for the 
+	beam length:</p>
+	<p style="text-align:center;" lang="latex">L = \sqrt[3]{\frac{3EI\delta}{P}}</p>
+	<p style="text-align:center;" lang="latex">L = \sqrt[3]{\frac{3(200 GPa)(0.699 mm^4)(7 mm)}{750 N}}</p>
+	<p style="text-align:center;" lang="latex">L \approx 16 mm</p>
+	<p><b>Therefore, the midsole should extend about 16 mm beyond the end of the customer's natural foot for 
+	the toebox of his shoes to have similar flexibility to OTS shoes and allow the customer to edge comfortably.</b></p>
+  </div>
+</div>
+
+<div class="tabContent" id="fab">
+  <div>
+	<p style="text-align:center;"><img src="PortfolioItems/sft-meche-portfolio-05.png" width="800px"/></p>
+	<p style="text-align:center;">Shoe design cross-section.</p>
+	<p style="text-align:center;"><img src="PortfolioItems/sft-meche-portfolio-06.png" width="800px"/></p>
+    <p style="text-align:center;">Spring steel parts riveted to polypropylene midsoles. Sculpted toe cap shown in position on midsole next to last. Last shown with sculpted toe cap and foam padding.</p>
+	<p style="text-align:center;"><img src="PortfolioItems/sft-meche-portfolio-07.png" width="800px"/></p>
+	<p style="text-align:center;">Midsole assembly with suede liner, waiting for contact cement to dry. Midsole assembly bonded to lasted upper. Shoe with the rand applied.</p>
+  </div>
+</div>
+
+<div class="tabContent" id="feedback">
+  <div>
+	<p style="text-align:center;"><img src="PortfolioItems/sft-meche-portfolio-03.png" width="400px"/></p>
+    <p style="text-align:center;">The customer said: <i>"They fit great! The stiffness seems to be right. If I’m not climbing 5.11c 
+    again this summer, I don’t expect to be able to blame the shoes!"</i></p>
+  </div>
+</div>
+
+</body>
+</html>

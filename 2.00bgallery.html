@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Online Portfolio</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26026374-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script language="javascript">
+var interval = 1500;
+var random_display = 0;
+var imageDir = "PortfolioItems/";
+var imageNum = 0;
+imageArray = new Array();
+
+imageArray[imageNum++] = new imageItem("PortfolioItems/seainki_sm.jpg");
+imageArray[imageNum++] = new imageItem("PortfolioItems/seainkiBW_sm.jpg");
+imageArray[imageNum++] = new imageItem("PortfolioItems/spaceinki1_sm.jpg");
+imageArray[imageNum++] = new imageItem("PortfolioItems/spaceinkiBW_sm.jpg");
+imageArray[imageNum++] = new imageItem(imageDir + "IMG_9788_sm.JPG");
+imageArray[imageNum++] = new imageItem(imageDir + "IMG_1993_sm.JPG");
+imageArray[imageNum++] = new imageItem(imageDir + "IMG_1412_sm.JPG");
+imageArray[imageNum++] = new imageItem(imageDir + "IMG_1311_sm.JPG");
+imageArray[imageNum++] = new imageItem(imageDir + "IMG_1310_sm.JPG");
+imageArray[imageNum++] = new imageItem(imageDir + "IMG_1343_sm.JPG");
+imageArray[imageNum++] = new imageItem(imageDir + "IMG_1702_sm.JPG");
+var totalImages = imageArray.length;
+
+function imageItem(image_location) {
+	this.image_item = new Image();
+	this.image_item.src = image_location;
+}
+function get_ImageItemLocation(imageObj) {
+	return(imageObj.image_item.src)
+}
+function getNextImage() {
+	imageNum = (imageNum+1) % totalImages;
+	var new_image = get_ImageItemLocation(imageArray[imageNum]);
+	return(new_image);
+}
+function getPrevImage() {
+	imageNum = (imageNum-1) % totalImages;
+	var new_image = get_ImageItemLocation(imageArray[imageNum]);
+	return(new_image);
+}
+function prevImage(place) {
+	var new_image = getPrevImage();
+	document[place].src = new_image;
+}
+function switchImage(place) {
+	var new_image = getNextImage();
+	document[place].src = new_image;
+	var recur_call = "switchImage('"+place+"')";
+	timerID = setTimeout(recur_call, interval);
+}
+</script>
+
+</head>
+
+<div id = "page">
+<div id = "header">
+	<p><b><a href="index.html" title="Home">Laura Shumaker</a></b></p>
+    <hr />
+	<p>lauracshumaker@gmail.com</p>
+</div>
+
+<div id = "links">
+  <p><a href="resume.html" title="Resume">Resume</a> <a href="gallery.html" title="Gallery">Gallery</a> <a href="classes.html" title="Classes">Classes</a> <a href="interests.html" title="Interests">Interests</a> <a href="adventures.html" title=Adventures>Adventures</a> <a href="acknowledgements.html" title=Acknowledgements>Acknowledgements</a></p>
+</div>
+
+<div id = "body">
+<div style="top:0px; left:0px; position: absolute; z-index: 2; visibility: show; width:400px;">
+<h1>inki</h1>
+<p><b>DESCRIPTION AND PROCESS</b></p>
+<p>Inki was a semester-long project for my <a href="http://web.mit.edu/2.00b/www/" title="2.00b">Toy Product Design</a> class during freshman spring. 
+Designed for the transitional period between finger-painting and artistic creation with adult tools,
+the Inki toy is a squeezable paint-filled bulb - sculpted like an imaginary undersea creature - with brushes on the bottom.
+It is sized to fill a 3 to 5 year old's palm, the bottom brush section can be locked so that no paint 
+can be squeezed out, opened to allow painting, or removed entirely to allow cleaning and refilling.
+In order to add multifunctionality, Inki comes with a "family," each of whom have a different type of
+brush. The family can be stored in their thermoformed yellow submarine.
+</p>
+<p>I originally drew Inki and then presented the concept to my team mates and our mentors. As the toy
+concept evolved, I created more concrete renderings of Inki and its family. Once we had settled on
+characters we liked that incorporated a range of paint tool types (brushes, sponges, and stamp-type patterns),
+we hand sculpted them from a modeling clay that became malleable under a heat lamp. </p>
+
+<p>Two-part molds were cast over
+the front and back halves of each toy model, and then the final prototypes were rotationally molded out of 
+silicon. Inki itself (in red) was a fully-functioning prototype, with separately molded hollow top and base pieces.
+The locking device was prototyped in ABS plastic using a fused deposition manufacturing (FDM) technique.
+This mechanism was overmolded, with a custom molded silicon one-way valve, into Inki.
+</p>
+</div>
+<div style="top:0px; left:450px; position: absolute; z-index: 2; visibility: show; width:350px;">
+<p><img name="slideImg_Inki" src="PortfolioItems/IMG_1702_sm.JPG" width="350" height="240" border=0>
+<p>
+<a href="#" onClick="prevImage('slideImg_Inki'); clearTimeout(timerID); return false">PREVIOUS</a>
+<a href="#" onClick="switchImage('slideImg_Inki'); clearTimeout(timerID); return false">NEXT</a>
+</p>
+<p><img src="PortfolioItems/Inkirenderings_sm.JPG" width="380"/>
+</div>
+</div>
+</body>
+</html>
