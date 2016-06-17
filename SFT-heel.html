@@ -4,6 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Laura Shumaker</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="tabs.js"></script>
+
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -17,8 +20,12 @@
   })();
 
 </script>
+
+<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+
 </head>
 
+<body onload="init()">
 <div id = "page">
 <div id = "header">
 	<p><b><a href="index.html" title="Home">Laura Shumaker</a></b></p>
@@ -31,21 +38,67 @@
 </div>
 
 <div id = "body">
-<div style="top:0px; left:0px; position: absolute; z-index: 2; visibility: show; width:400px;">
+<div style="top:0px; left:0px; position: absolute; z-index: 2; visibility: show;">
 <a href="SFTgallery.html" title="SFT Gallery">&#8636; Back to SFT</a>
 <hr>
 <h1>Heel Design Analysis</h1>
-<p><b>DESCRIPTION AND PROCESS</b></p>
-<p>
-</p>
+
+<ul id="tabs">
+  <li><a href="#back">Background</a></li>
+  <li><a href="#debug">Debugging</a></li>
+  <li><a href="#results">Results</a></li>
+</ul>
+
+<div class="tabContent" id="back">
+  <div>
+	<p>This project is also documented on the <a href="https://www.sftclimbing.com/blogs/design/42717956-improving-the-heel-design" title="SFT Design Blog">SFT Design Blog</a>.</p>
+	<p>Because everyone's feet are different, from a small pool of customers in our beta program, SFT 
+	was able to stretch the design to its limits. The same CAD model used for narrow, 
+	"Egyptian-toed" feet could be changed in 2 minutes to fit a person with wide feet 
+	and "Morton's toes." The toebox design had proved quite flexible.</p>
+	<p>However, fitting peoples' heels had been more difficult. After taking 
+	measurement after measurement, making visual comparison's of customers' bone 
+	structures, and building many prototypes to test various hypotheses, I made 
+	progress in determining how much narrower the last should be than one's foot 
+	tracing to account for movement of the flesh around the heel. However, each prototype seemed to fit a little differently around the 
+	Achilles tendon.</p>
+	<p>Since this issue was consistent for many customers, there wear clearly some faulty 
+	assumptions in the last's heel and ankle design. Since I had built up quite a 
+	volume of prototypes, all with different materials, rand designs, and many other facets, 
+	I decided to conduct a survey of heel comfort versus all the variables that might 
+	affect heel fit.</p>
+  </div>
 </div>
 
-<div style="top:0px; left:500px; position: absolute; z-index: 2; visibility: show; width:350px;">
 
-<p><img src="PortfolioItems/lathe.jpg" width=300px/></p>
-<p style="font-size:70%">Finished lathe.</p>
+<div class="tabContent" id="debug">
+  <div>
+    <p>I selected 13 existing prototypes, 5 of which were adjustable, and one reference off-the-shelf shoe
+	to try on and rate in terms of comfort. Then I collected data on heel angle, rand design, and six other 
+	variables and calculated correlation coefficients between these variables and the 
+	comfort ratings.</p>
+	<p style="text-align:center;"><img src="PortfolioItems/comfort_ratings.png" width="600px"/></p>
+	<p>The orange bars indicate comfort ratings (each prototype was sampled three 
+	times), and the blue line indicates the average comfort rating.</p>
+	<p>When calculating correlation coefficients, prototypes with a comfort rating 
+	standard deviation of greater than 0.8 (graphically speaking: prototypes where 
+	the average rating differs greatly from the three samples) were not included.</p>
+ </div>
 </div>
 
+<div class="tabContent" id="results">
+  <div>
+  <p>The correlation coefficients indicated that heel stiffness was the variable with 
+  the greatest effect on heel comfort, followed by heel angle and whether or not the 
+  heel rand was continuous. The other variables measured were not significantly 
+  correlated to heel comfort.</p>
+  <p style="text-align:center;"><img src="PortfolioItems/improving_heel_design.jpg" width="600px"/></p>
+  <p>All of SFT's concurrent shoes have drawn on the information learned from this 
+  prototype survey, and our customers noted how much more comfortable the heels were. 
+  One customer who received a pair shortly after this said, "The heel fits like a 
+  glove and this shoe looks absolutely fantastic."</p>
+  </div>
+</div> 
 
 </body>
 </html>
